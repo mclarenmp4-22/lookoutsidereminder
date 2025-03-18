@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head><title>Don't forget to look outside!</title></head>
+<body>
+
+<audio id="myAudio">
+  <source src="jbsh.mp3" type="audio/mpeg">
+</audio>
+
+<strong>CLICK PLAY AUDIO BEFORE STARTING ANYTHING ELSE!!!</strong>
+
+<button onclick="playAudio()" type="button">Play Audio</button>
+<button onclick="pauseAudio()" type="button">Pause Audio</button> 
+<p>Your screen time today:</p>
+<p id="myscreentime"></p>
+<script>
+var x = document.getElementById("myAudio"); 
+setInterval(playAudio, 1200000);
+function playAudio() { 
+  x.play(); 
+} 
+
+function pauseAudio() { 
+  x.pause(); 
+} 
+setInterval (updatescreentime, 1000);
+var secs = 0
+var mins = 0
+var hrs = 0
+function updatescreentime () {
+   secs = secs + 1
+  if (secs == 60) {
+   mins = mins + 1;
+   secs = 0
+  }
+  if (mins == 60) {
+   hrs = hrs + 1;
+   mins = 0
+  } 
+  var time = hrs + " hours, " + mins + " minutes and " + secs + " seconds"
+  document.getElementById("myscreentime").innerHTML = time
+}
+
+
+</script>
+
+</body>
+</html>
